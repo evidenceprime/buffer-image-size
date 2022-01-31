@@ -1,22 +1,21 @@
 {
-  "name": "buffer-image-size",
-  "version": "0.6.4",
+  "name": "@ep/buffer-image-size",
+  "version": "0.6.5",
   "description": "get dimensions of any image buffer",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
-  "files": [
-    "bin",
-    "lib"
-  ],
   "engines": {
-    "node": ">=4.0"
+    "node": ">=8.0"
   },
   "scripts": {
+    "prebuild": "rm -rf dist",
+    "build": "webpack",
+    "postbuild": "node scripts/copy-build-files.js",
     "pretest": "eslint lib specs",
     "test": "nyc mocha specs",
-    "coverage": "nyc report --reporter=text-lcov | coveralls"
+    "release": "npm run build && npm publish dist/"
   },
-  "repository": "evidentpoint/buffer-image-size",
+  "repository": "evidenceprime/buffer-image-size",
   "keywords": [
     "image",
     "size",
@@ -36,16 +35,18 @@
   ],
   "author": "netroy <aditya@netroy.in> (http://netroy.in/)",
   "license": "MIT",
-  "dependencies": {
-    "@types/node": "*"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "@types/node": "*",
+    "copy-webpack-plugin": "^10.2.4",
     "coveralls": "^3.0.0",
     "eslint": "^4.13.1",
     "expect.js": "^0.3.1",
     "glob": "^7.1.1",
     "mocha": "^4.0.1",
     "nyc": "^11.2.1",
-    "sinon": "^4.0.2"
+    "sinon": "^4.0.2",
+    "webpack": "^5.67.0",
+    "webpack-cli": "^4.9.2"
   }
 }
