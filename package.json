@@ -1,6 +1,6 @@
 {
   "name": "@ep/buffer-image-size",
-  "version": "0.6.5",
+  "version": "0.6.7",
   "description": "get dimensions of any image buffer",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
