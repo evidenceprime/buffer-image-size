@@ -87,7 +87,7 @@ describe('Valid images', function () {
       var bufferSize = 8192;
 
       beforeEach(function () {
-        var buffer = new Buffer(bufferSize);
+        var buffer = Buffer.alloc(bufferSize);
         var filepath = path.resolve(file);
         var descriptor = fs.openSync(filepath, 'r');
         fs.readSync(descriptor, buffer, 0, bufferSize, 0);
